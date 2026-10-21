@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Flair Fire</title>
+<title>Flair</title>
 <style>
 :root{--bg:#fff8f3;--surface:#fff;--text:#2a1810;--muted:#8a6f60;--accent:#ff6a00;--accent2:#e11d00;--border:#f1ddd0;--user:#ff6a00;--userText:#fff;--code:#fdeee3;--side:#fff3ea;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150d09;--surface:#22150e;--text:#fbeee6;--muted:#b49484;--border:#3d281c;--code:#321f14;--side:#1b100a}}
@@ -129,104 +129,196 @@ header .fire{font-size:20px}
 </head>
 <body>
 <div id="site">
-  <div class="nav"><span class="brand"><span class="flogo" data-s="34"></span><span class="fire">Flair</span></span><button class="btn" id="siteOpen">Open Flair</button></div>
-  <div class="hero">
-    <span class="flogo" data-s="130"></span>
-    <h1><span class="fire">Flair</span><br>the AI that can do anything</h1>
-    <p>Chat, code, jokes, ideas and pictures. Flair talks back, remembers you, and tests its code in a built-in sandbox.</p>
-    <button class="btn" id="siteStart">Start chatting</button>
-    <p style="font-size:14px;margin:14px auto 0">Free: 30 prompts per chat every hour · Pro: 60 prompts per chat every hour for ₹500/month · as many chats as you like</p>
-  </div>
-  <div class="feats">
-    <div class="feat"><b>💬 Ask anything</b><span>Homework, ideas, stories, advice. Upload photos and videos too. If you can ask it, Flair can help.</span></div>
-    <div class="feat"><b>🧪 Code sandbox</b><span>Run JavaScript, HTML and playable 3D games that Flair writes, right in the chat, and get errors fixed in one tap.</span></div>
-    <div class="feat"><b>🎨 Make pictures</b><span>Ask for a drawing or logo and Flair illustrates it for you to save.</span></div>
-    <div class="feat"><b>🎙 Voice chat</b><span>Talk to Flair and hear it answer out loud, hands-free.</span></div>
-    <div class="feat"><b>🧰 200 abilities</b><span>Pick from ready-made skills for writing, code, study, languages, business, life and games.</span></div>
-    <div class="feat"><b>🧠 Remembers you</b><span>New chats pick up what Flair learned in earlier ones. See it or clear it any time.</span></div>
-  </div>
-  <div class="sfoot">Made by Rudra, Arjun, Allan and Vivaan 🔥</div>
+  <div class="nav"><span class="brand"><span class="flogo" data-s="34"></span><span class="fire">Flair</span></span><button class="btn" id="siteOpen">Open Flair</button></div>
+  <div class="hero">
+    <span class="flogo" data-s="130"></span>
+    <h1><span class="fire">Flair</span><br>the AI that can do anything</h1>
+    <p>Chat, code, jokes, ideas and pictures. Flair talks back, remembers you, and tests its code in a built-in sandbox.</p>
+    <button class="btn" id="siteStart">Start chatting</button>
+    <p style="font-size:14px;margin:14px auto 0">Free: 25 prompts every 5 hours · Pro: 75 prompts every 5 hours for ₹500/month</p>
+  </div>
+  <div class="feats">
+    <div class="feat"><b>💬 Ask anything</b><span>Homework, ideas, stories, advice. Upload photos and videos too. If you can ask it, Flair can help.</span></div>
+    <div class="feat"><b>🧪 Code sandbox</b><span>Run JavaScript, HTML and playable 3D games that Flair writes, right in the chat, and get errors fixed in one tap.</span></div>
+    <div class="feat"><b>🎨 Make pictures</b><span>Ask for a drawing or logo and Flair illustrates it for you to save.</span></div>
+    <div class="feat"><b>🎙 Voice chat</b><span>Talk to Flair and hear it answer out loud, hands-free.</span></div>
+    <div class="feat"><b>🧰 200 abilities</b><span>Pick from ready-made skills for writing, code, study, languages, business, life and games.</span></div>
+    <div class="feat"><b>🧠 Remembers you</b><span>New chats pick up what Flair learned in earlier ones. See it or clear it any time.</span></div>
+  </div>
+  <div class="sfoot">Made by Rudra, Arjun, Allan and Vivaan 🔥</div>
 </div>
 <div id="welcome">
-  <span class="flogo" data-s="110"></span>
-  <h1 class="fire">Flair</h1>
-  <p>Your AI for anything: code, jokes, ideas, homework, you name it.<br>What should I call you?</p>
-  <input id="nameIn" placeholder="Type your name" maxlength="30" autocomplete="off">
-  <button class="btn" id="go">Start chatting</button>
+  <span class="flogo" data-s="110"></span>
+  <h1 class="fire">Flair</h1>
+  <p>Your AI for anything: code, jokes, ideas, homework, you name it.<br>What should I call you?</p>
+  <input id="nameIn" placeholder="Type your name" maxlength="30" autocomplete="off">
+  <button class="btn" id="go">Start chatting</button>
 </div>
 
 <div id="app">
-  <aside id="side">
-    <div class="top"><span class="flogo" data-s="34"></span><span class="fire">Flair</span></div>
-    <button class="btn" id="newChat">+ New chat</button>
-    <div id="meter"></div>
-    <div id="list"></div>
-    <div class="foot">
-      <button class="small" id="memBtn">Memory</button>
-      <button class="small" id="abBtn2" style="width:100%">🧰 200 Abilities</button>
-      <button class="small" id="homeBtn">🏠 Home</button>
-      <button class="small" id="chg">Change name</button>
-      <button class="small" id="talkBtn" style="width:100%">🎧 Voice chat</button>
-      <button class="small" id="spkBtn" style="width:100%">🔊 Voice replies: on</button>
-      <select id="voiceSel" class="small" title="Flair's voice"></select>
-    </div>
-  </aside>
-  <div id="main">
-    <header><button class="small" id="menu">☰</button><span class="flogo" data-s="28"></span><span class="fire">Flair</span></header>
-    <div id="chat"></div>
-    <div id="err"></div>
-    <div id="pend"></div>
-    <div id="bar">
-      <textarea id="msgIn" rows="1" placeholder="Ask Flair anything..."></textarea>
-      <button class="small" id="attBtn" title="Attach photos or videos" style="width:46px;flex:none;font-size:18px;padding:0;border-radius:12px">📎</button>
-      <input type="file" id="fileIn" multiple hidden accept="image/jpeg,image/png,image/webp,image/gif,video/*">
-      <button class="small" id="abBtn" title="200 abilities" style="width:46px;flex:none;font-size:18px;padding:0;border-radius:12px">🧰</button>
-      <button class="small" id="mic" title="Speak a message">🎙</button>
-      <button class="btn" id="send">Send</button>
-    </div>
-  </div>
+  <aside id="side">
+    <div class="top"><span class="flogo" data-s="34"></span><span class="fire">Flair</span></div>
+    <button class="btn" id="newChat">+ New chat</button>
+    <div id="meter"></div>
+    <div id="list"></div>
+    <div class="foot">
+      <button class="small" id="memBtn">Memory</button>
+      <button class="small" id="abBtn2" style="width:100%">🧰 200 Abilities</button>
+      <button class="small" id="homeBtn">🏠 Home</button>
+      <button class="small" id="chg">Change name</button>
+      <button class="small" id="talkBtn" style="width:100%">🎧 Voice chat</button>
+      <button class="small" id="spkBtn" style="width:100%">🔊 Voice replies: on</button>
+      <select id="voiceSel" class="small" title="Flair's voice"></select>
+    </div>
+  </aside>
+  <div id="main">
+    <header><button class="small" id="menu">☰</button><span class="flogo" data-s="28"></span><span class="fire">Flair</span></header>
+    <div id="chat"></div>
+    <div id="err"></div>
+    <div id="pend"></div>
+    <div id="bar">
+      <textarea id="msgIn" rows="1" placeholder="Ask Flair anything..."></textarea>
+      <button class="small" id="attBtn" title="Attach photos or videos" style="width:46px;flex:none;font-size:18px;padding:0;border-radius:12px">📎</button>
+      <input type="file" id="fileIn" multiple hidden accept="image/jpeg,image/png,image/webp,image/gif,video/*">
+      <button class="small" id="abBtn" title="200 abilities" style="width:46px;flex:none;font-size:18px;padding:0;border-radius:12px">🧰</button>
+      <button class="small" id="mic" title="Speak a message">🎙</button>
+      <button class="btn" id="send">Send</button>
+    </div>
+  </div>
 </div>
 
 <div id="up"><div id="upBox">
-  <h3>⭐ Flair Pro</h3>
-  <div class="plans">
-    <div class="plan"><b>Free</b><div class="pr">₹0</div>30 prompts per chat every hour</div>
-    <div class="plan pro"><b>Pro</b><div class="pr">₹500<small style="font-size:12px;font-weight:400">/month</small></div>60 prompts per chat every hour</div>
-  </div>
-  <div id="upPay"></div>
-  <div style="font-size:14px;line-height:1.45">Pay ₹500 to the Flair team (Rudra, Arjun, Allan and Vivaan) and they'll send you an unlock code. Enter it here to switch on Pro for 30 days.</div>
-  <input id="upCode" placeholder="FLAIR-XXXX-XXXX" autocomplete="off">
-  <button class="btn" id="upGo">Unlock Pro</button>
-  <div id="upMsg"></div>
-  <button class="small" id="upClose">Close</button>
+  <h3>⭐ Flair Pro</h3>
+  <div class="plans">
+    <div class="plan"><b>Free</b><div class="pr">₹0</div>25 prompts every 5 hours</div>
+    <div class="plan pro"><b>Pro</b><div class="pr">₹500<small style="font-size:12px;font-weight:400">/month</small></div>75 prompts every 5 hours</div>
+  </div>
+  <div id="upPay"></div>
+  <div style="font-size:14px;line-height:1.45">Pay ₹500 to the Flair team (Rudra, Arjun, Allan and Vivaan) and they'll send you an unlock code. Enter it here to switch on Pro for 30 days.</div>
+  <input id="upCode" placeholder="FLAIR-XXXX-XXXX" autocomplete="off">
+  <button class="btn" id="upGo">Unlock Pro</button>
+  <div id="upMsg"></div>
+  <button class="small" id="upClose">Close</button>
 </div></div>
 <div id="abil"><div id="abBox">
-  <div class="hd"><h3 id="abTitle">Abilities</h3><button class="small" id="abClose">Close</button></div>
-  <input id="abQ" placeholder="Search abilities (translate, quiz, resume...)" autocomplete="off">
-  <div id="abTabs"></div>
-  <div id="abGrid"></div>
+  <div class="hd"><h3 id="abTitle">Abilities</h3><button class="small" id="abClose">Close</button></div>
+  <input id="abQ" placeholder="Search abilities (translate, quiz, resume...)" autocomplete="off">
+  <div id="abTabs"></div>
+  <div id="abGrid"></div>
 </div></div>
 <div id="mem"><div id="memBox">
-  <h3>What Flair remembers</h3>
-  <ul id="memList"></ul>
-  <div class="row"><button class="small" id="memClear">Clear all</button><button class="small" id="memClose">Close</button></div>
+  <h3>What Flair remembers</h3>
+  <ul id="memList"></ul>
+  <div class="row"><button class="small" id="memClear">Clear all</button><button class="small" id="memClose">Close</button></div>
 </div></div>
 
+<script>
+(function(){
+  if(window.claude)return;
+  var KEY="flair_ai_cfg";
+  function cfg(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
+  function setEngine(){var c=cfg();window.FLAIR_ENGINE=c.model?("the "+c.model+" AI model, connected by Flair's owners (it is not Claude)"):"an AI model connected by Flair's owners";}
+  setEngine();
+  function toDataURL(b){return new Promise(function(res,rej){var r=new FileReader();r.onload=function(){res(r.result)};r.onerror=function(){rej({message:"Couldn't read an attached image."})};r.readAsDataURL(b)})}
+  async function sample(input,opts){
+    opts=opts||{};
+    var c=cfg();
+    if(!c.url||!c.model)throw {code:"not_configured",message:"Flair isn't connected to an AI yet. Tap ⚙ AI settings in the sidebar, add your endpoint and model, then send again."};
+    var msgs=(typeof input==="string"?[{role:"user",content:input}]:input).map(function(m){return {role:m.role,content:m.content}});
+    if(opts.images&&opts.images.length){
+      var urls=await Promise.all(opts.images.map(toDataURL));
+      var last=msgs[msgs.length-1];
+      last.content=[{type:"text",text:last.content}].concat(urls.map(function(u){return {type:"image_url",image_url:{url:u}}}));
+    }
+    var headers={"Content-Type":"application/json"};
+    if(c.key)headers.Authorization="Bearer "+c.key;
+    var base=c.url.replace(/\/+$/,"");
+    var res;
+    try{res=await fetch(base+"/chat/completions",{method:"POST",headers:headers,body:JSON.stringify({model:c.model,messages:msgs,stream:true})})}
+    catch(e){throw {message:"Couldn't reach the AI server at "+base+". Check that it is running and allows requests from this website (CORS)."}}
+    if(!res.ok){
+      var t="";try{t=await res.text()}catch(e){}
+      throw {code:res.status===429?"rate_limited":"error",message:"The AI server returned an error ("+res.status+"). "+t.slice(0,200)};
+    }
+    var reader=res.body.getReader(),dec=new TextDecoder(),buf="",text="";
+    for(;;){
+      var r=await reader.read();if(r.done)break;
+      buf+=dec.decode(r.value,{stream:true});
+      var lines=buf.split("\n");buf=lines.pop();
+      for(var i=0;i<lines.length;i++){
+        var l=lines[i].trim();
+        if(l.indexOf("data:")!==0)continue;
+        var d=l.slice(5).trim();if(d==="[DONE]")continue;
+        try{var j=JSON.parse(d);var dl=(j.choices&&j.choices[0]&&j.choices[0].delta&&j.choices[0].delta.content)||"";
+          if(dl){text+=dl;if(opts.onText)opts.onText({text:text,delta:dl})}}catch(e){}
+      }
+    }
+    return {text:text};
+  }
+  sample.json=async function(prompt){
+    var r=await sample(prompt+"\n\nReply with JSON only, no other text.");
+    var m=r.text.match(/\{[\s\S]*\}/);
+    try{return JSON.parse(m[0])}catch(e){return {new:[]}}
+  };
+  sample.limits=async function(){return {images:{maxCount:10,mediaTypes:["image/jpeg","image/png","image/webp","image/gif"],maxInputBytes:4000000}}};
+  var downloads={save:async function(o){
+    var b=(o.data instanceof Blob)?o.data:new Blob([o.data],{type:/\.svg$/i.test(o.filename)?"image/svg+xml":"text/plain"});
+    var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=o.filename;document.body.appendChild(a);a.click();a.remove();
+    setTimeout(function(){URL.revokeObjectURL(a.href)},2000);
+  }};
+  window.claude={use:async function(n){return n==="sample"?sample:n==="downloads"?downloads:null}};
+
+  /* settings UI */
+  var foot=document.querySelector("#side .foot");
+  var btn=document.createElement("button");btn.className="small";btn.id="aiSet";btn.style.width="100%";btn.textContent="⚙ AI settings";
+  if(foot)foot.insertBefore(btn,foot.firstChild);
+  var ov=document.createElement("div");
+  ov.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:50";
+  ov.innerHTML='<div style="background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:16px;padding:18px;width:min(460px,94%);max-height:90%;overflow:auto;display:flex;flex-direction:column;gap:10px">'
+   +'<h3 style="margin:0">⚙ Connect an AI</h3>'
+   +'<div style="font-size:13px;color:var(--muted);line-height:1.45">Flair talks to any OpenAI-compatible chat server. Your settings stay in this browser only. Never put a secret API key in the website files.</div>'
+   +'<div id="aiPre" style="display:flex;gap:6px;flex-wrap:wrap"></div>'
+   +'<input id="aiUrl" placeholder="Endpoint, e.g. http://localhost:11434/v1" style="padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text)">'
+   +'<input id="aiModel" placeholder="Model name, e.g. llama3.2" style="padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text)">'
+   +'<input id="aiKey" type="password" placeholder="API key (leave empty for Ollama)" style="padding:10px 12px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text)">'
+   +'<div style="display:flex;gap:8px"><button class="btn" id="aiSave">Save</button><button class="small" id="aiTest" style="width:auto;padding:0 14px">Test</button><button class="small" id="aiClose" style="width:auto;padding:0 14px">Close</button></div>'
+   +'<div id="aiMsg" style="font-size:13px;color:var(--muted);min-height:18px"></div></div>';
+  document.body.appendChild(ov);
+  function q(id){return ov.querySelector("#"+id)}
+  [["Ollama (your computer)","http://localhost:11434/v1","llama3.2"],["OpenRouter","https://openrouter.ai/api/v1","meta-llama/llama-3.3-70b-instruct:free"],["Groq","https://api.groq.com/openai/v1","llama-3.3-70b-versatile"],["OpenAI","https://api.openai.com/v1","gpt-4o-mini"]].forEach(function(p){
+    var b=document.createElement("button");b.className="chip";b.style.fontSize="12px";b.style.padding="5px 10px";b.textContent=p[0];
+    b.onclick=function(){q("aiUrl").value=p[1];q("aiModel").value=p[2]};
+    q("aiPre").appendChild(b);
+  });
+  function openSet(){var c=cfg();q("aiUrl").value=c.url||"";q("aiModel").value=c.model||"";q("aiKey").value=c.key||"";q("aiMsg").textContent="";ov.style.display="flex";var s=document.getElementById("side");if(s)s.classList.remove("open")}
+  function save(){localStorage.setItem(KEY,JSON.stringify({url:q("aiUrl").value.trim(),model:q("aiModel").value.trim(),key:q("aiKey").value.trim()}));setEngine()}
+  btn.onclick=openSet;
+  q("aiClose").onclick=function(){ov.style.display="none"};
+  q("aiSave").onclick=function(){save();q("aiMsg").textContent="Saved.";setTimeout(function(){ov.style.display="none"},700)};
+  q("aiTest").onclick=async function(){
+    save();q("aiMsg").textContent="Testing...";
+    try{var r=await sample("Reply with just the word OK.");q("aiMsg").textContent=r.text?"Connected. The AI replied: "+r.text.slice(0,60):"Connected, but the reply was empty."}
+    catch(e){q("aiMsg").textContent=(e&&e.message)||"Test failed."}
+  };
+  window.addEventListener("flair-open-ai",openSet);
+})();
+
+</script>
 <script>
 const $=id=>document.getElementById(id);
 let data={name:"",chats:[],memory:[],cur:null,usage:[],pro:null,used:[]},busy=false,sample=null,lid=0;
 try{
-  const s=localStorage.getItem("flair_data");
-  if(s)data=Object.assign(data,JSON.parse(s));
-  if(!data.name)data.name=localStorage.getItem("flair_name")||"";
+  const s=localStorage.getItem("flair_data");
+  if(s)data=Object.assign(data,JSON.parse(s));
+  if(!data.name)data.name=localStorage.getItem("flair_name")||"";
 }catch(e){}
 function save(){try{localStorage.setItem("flair_data",JSON.stringify(data))}catch(e){}}
 
 /* Fire F logo */
 function logo(s){
-  const i=++lid;
-  const fl=(x,y,sc,d)=>`<g transform="translate(${x},${y}) scale(${sc})"><path class="fl" style="animation-delay:${d}s" d="M-7 0C-10-12-2-16 0-36 4-22 10-12 7 0Z" fill="url(#o${i})"/><path class="fl" style="animation-delay:${d+.15}s" d="M-3.5 0C-5-6-1-8 0-18 2-10 5-6 3.5 0Z" fill="#fff3a8"/></g>`;
-  return `<svg width="${s}" height="${s*1.2}" viewBox="0 -8 100 120" aria-label="Flair logo">
+  const i=++lid;
+  const fl=(x,y,sc,d)=>`<g transform="translate(${x},${y}) scale(${sc})"><path class="fl" style="animation-delay:${d}s" d="M-7 0C-10-12-2-16 0-36 4-22 10-12 7 0Z" fill="url(#o${i})"/><path class="fl" style="animation-delay:${d+.15}s" d="M-3.5 0C-5-6-1-8 0-18 2-10 5-6 3.5 0Z" fill="#fff3a8"/></g>`;
+  return `<svg width="${s}" height="${s*1.2}" viewBox="0 -8 100 120" aria-label="Flair logo">
 <defs>
 <linearGradient id="g${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe066"/><stop offset=".5" stop-color="#ff8a00"/><stop offset="1" stop-color="#e11d00"/></linearGradient>
 <linearGradient id="o${i}" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#e11d00"/><stop offset=".6" stop-color="#ff8a00"/><stop offset="1" stop-color="#ffd23f"/></linearGradient>
@@ -241,72 +333,72 @@ document.querySelectorAll(".flogo").forEach(el=>{el.innerHTML=logo(+el.dataset.s
 function esc(s){return s.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
 const pics={},codes={},runs={};let picN=0,codeN=0;
 function pic(src){
-  const m=src.match(/<svg[\s\S]*<\/svg>/i);
-  if(!m)return "<p>I couldn't finish that drawing. Ask me to try again.</p>";
-  let s=m[0].replace(/<script[\s\S]*?<\/script>/gi,"").replace(/<foreignObject[\s\S]*?<\/foreignObject>/gi,"").replace(/\son\w+\s*=\s*("[^"]*"|'[^']*')/gi,"").replace(/(xlink:)?href\s*=\s*("(?!#)[^"]*"|'(?!#)[^']*')/gi,"");
-  if(!/xmlns\s*=/.test(s))s=s.replace(/<svg/i,'<svg xmlns="http://www.w3.org/2000/svg"');
-  const id="p"+(++picN);pics[id]=s;
-  return '<div class="pic"><img alt="Picture drawn by Flair" src="data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s)+'"><button class="small" data-pic="'+id+'">⬇ Save picture</button></div>';
+  const m=src.match(/<svg[\s\S]*<\/svg>/i);
+  if(!m)return "<p>I couldn't finish that drawing. Ask me to try again.</p>";
+  let s=m[0].replace(/<script[\s\S]*?<\/script>/gi,"").replace(/<foreignObject[\s\S]*?<\/foreignObject>/gi,"").replace(/\son\w+\s*=\s*("[^"]*"|'[^']*')/gi,"").replace(/(xlink:)?href\s*=\s*("(?!#)[^"]*"|'(?!#)[^']*')/gi,"");
+  if(!/xmlns\s*=/.test(s))s=s.replace(/<svg/i,'<svg xmlns="http://www.w3.org/2000/svg"');
+  const id="p"+(++picN);pics[id]=s;
+  return '<div class="pic"><img alt="Picture drawn by Flair" src="data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s)+'"><button class="small" data-pic="'+id+'">⬇ Save picture</button></div>';
 }
 function md(t){
-  const segs=t.split(/```/);
-  return segs.map((p,i)=>{
-    if(i%2){const nl0=p.indexOf("\n");const lang=(nl0>=0?p.slice(0,nl0):p).trim().toLowerCase();if(lang==="svg"){return i===segs.length-1?"<p>🎨 Drawing your picture...</p>":pic(p.slice(nl0+1))}}
-    if(i%2){const nl=p.indexOf("\n");const lg=(nl>=0?p.slice(0,nl):p).trim().toLowerCase();const code=nl>=0?p.slice(nl+1):p;let h="<pre><code>"+esc(code)+"</code></pre>";if(i<segs.length-1&&["js","javascript","html"].includes(lg)){const id="c"+(++codeN);codes[id]={lg:lg==="html"?"html":"js",code};h+='<button class="small run" data-run="'+id+'">▶ Run in sandbox</button><div class="sbx" id="sbx-'+id+'"></div>'}return h}
-    return esc(p).split(/\n{2,}/).map(x=>x.trim()?"<p>"+x.replace(/`([^`]+)`/g,"<code>$1</code>").replace(/\*\*([^*]+)\*\*/g,"<b>$1</b>").replace(/\n/g,"<br>")+"</p>":"").join("");
-  }).join("");
+  const segs=t.split(/```/);
+  return segs.map((p,i)=>{
+    if(i%2){const nl0=p.indexOf("\n");const lang=(nl0>=0?p.slice(0,nl0):p).trim().toLowerCase();if(lang==="svg"){return i===segs.length-1?"<p>🎨 Drawing your picture...</p>":pic(p.slice(nl0+1))}}
+    if(i%2){const nl=p.indexOf("\n");const lg=(nl>=0?p.slice(0,nl):p).trim().toLowerCase();const code=nl>=0?p.slice(nl+1):p;let h="<pre><code>"+esc(code)+"</code></pre>";if(i<segs.length-1&&["js","javascript","html"].includes(lg)){const id="c"+(++codeN);codes[id]={lg:lg==="html"?"html":"js",code};h+='<button class="small run" data-run="'+id+'">▶ Run in sandbox</button><div class="sbx" id="sbx-'+id+'"></div>'}return h}
+    return esc(p).split(/\n{2,}/).map(x=>x.trim()?"<p>"+x.replace(/`([^`]+)`/g,"<code>$1</code>").replace(/\*\*([^*]+)\*\*/g,"<b>$1</b>").replace(/\n/g,"<br>")+"</p>":"").join("");
+  }).join("");
 }
 function showErr(m){const e=$("err");e.textContent=m;e.style.display=m?"block":"none"}
 const cur=()=>data.chats.find(c=>c.id===data.cur);
 
 /* chats */
 function newChat(){
-  const c=cur();
-  if(c&&!c.msgs.length){renderChat();$("side").classList.remove("open");return}
-  const n={id:Date.now().toString(36),title:"New chat",msgs:[],ts:Date.now()};
-  data.chats.unshift(n);data.chats=data.chats.slice(0,300);data.cur=n.id;
-  save();renderList();renderChat();$("side").classList.remove("open");
+  const c=cur();
+  if(c&&!c.msgs.length){renderChat();$("side").classList.remove("open");return}
+  const n={id:Date.now().toString(36),title:"New chat",msgs:[],ts:Date.now()};
+  data.chats.unshift(n);data.chats=data.chats.slice(0,300);data.cur=n.id;
+  save();renderList();renderChat();$("side").classList.remove("open");
 }
 function renderList(){
-  const L=$("list");L.innerHTML="";
-  data.chats.forEach(c=>{
-    const d=document.createElement("div");d.className="item"+(c.id===data.cur?" on":"");
-    const s=document.createElement("span");s.textContent=c.title;
-    const x=document.createElement("button");x.textContent="×";x.title="Delete chat";
-    x.onclick=e=>{e.stopPropagation();if(busy)return;data.chats=data.chats.filter(k=>k.id!==c.id);if(data.cur===c.id){data.cur=data.chats[0]?.id||null}save();if(!data.cur)newChat();else{renderList();renderChat()}};
-    d.onclick=()=>{if(busy)return;data.cur=c.id;save();renderList();renderChat();$("side").classList.remove("open")};
-    d.append(s,x);L.appendChild(d);
-  });
+  const L=$("list");L.innerHTML="";
+  data.chats.forEach(c=>{
+    const d=document.createElement("div");d.className="item"+(c.id===data.cur?" on":"");
+    const s=document.createElement("span");s.textContent=c.title;
+    const x=document.createElement("button");x.textContent="×";x.title="Delete chat";
+    x.onclick=e=>{e.stopPropagation();if(busy)return;data.chats=data.chats.filter(k=>k.id!==c.id);if(data.cur===c.id){data.cur=data.chats[0]?.id||null}save();if(!data.cur)newChat();else{renderList();renderChat()}};
+    d.onclick=()=>{if(busy)return;data.cur=c.id;save();renderList();renderChat();$("side").classList.remove("open")};
+    d.append(s,x);L.appendChild(d);
+  });
 }
 function addUser(content,thumbs){
-  const d=add("user",esc(content));
-  (thumbs||[]).forEach(t=>{const i=document.createElement("img");i.src=t;i.className="th";i.alt="attachment";d.appendChild(i)});
-  return d;
+  const d=add("user",esc(content));
+  (thumbs||[]).forEach(t=>{const i=document.createElement("img");i.src=t;i.className="th";i.alt="attachment";d.appendChild(i)});
+  return d;
 }
 function add(cls,html){const d=document.createElement("div");d.className="msg "+cls;d.innerHTML=html;$("chat").appendChild(d);$("chat").scrollTop=1e9;return d}
 function renderChat(){
-  const box=$("chat");box.innerHTML="";showErr("");renderMeter();
-  const c=cur();if(!c)return;
-  if(!c.msgs.length){
-    const back=data.memory.length||data.chats.length>1;
-    add("ai",`<p>${back?"Welcome back":"Hey"}, ${esc(data.name)}! I'm Flair. ${back?"I remember our past chats, so just pick up where we left off.":"I can write code, tell jokes, help with ideas, and much more."} What can I do for you?</p>`);
-    const chips=document.createElement("div");chips.className="chips";chips.id="chips";
-    ["Tell me a joke","Make a 3D game","Draw me a dragon","Give me a fun idea"].forEach(t=>{
-      const b=document.createElement("button");b.className="chip";b.textContent=t;b.onclick=()=>send(t);chips.appendChild(b)});
-    box.appendChild(chips);
-  }else c.msgs.forEach(m=>{const d=m.role==="user"?addUser(m.content,m.thumbs):add("ai",md(m.content));if(m.role!=="user")attachSpeak(d,m.content)});
-  box.scrollTop=1e9;
+  const box=$("chat");box.innerHTML="";showErr("");renderMeter();
+  const c=cur();if(!c)return;
+  if(!c.msgs.length){
+    const back=data.memory.length||data.chats.length>1;
+    add("ai",`<p>${back?"Welcome back":"Hey"}, ${esc(data.name)}! I'm Flair. ${back?"I remember our past chats, so just pick up where we left off.":"I can write code, tell jokes, help with ideas, and much more."} What can I do for you?</p>`);
+    const chips=document.createElement("div");chips.className="chips";chips.id="chips";
+    ["Tell me a joke","Make a 3D game","Draw me a dragon","Give me a fun idea"].forEach(t=>{
+      const b=document.createElement("button");b.className="chip";b.textContent=t;b.onclick=()=>send(t);chips.appendChild(b)});
+    box.appendChild(chips);
+  }else c.msgs.forEach(m=>{const d=m.role==="user"?addUser(m.content,m.thumbs):add("ai",md(m.content));if(m.role!=="user")attachSpeak(d,m.content)});
+  box.scrollTop=1e9;
 }
 
 /* entry */
 function begin(){
-  $("site").style.display="none";$("welcome").style.display="none";$("app").style.display="flex";
-  if(!data.chats.length||!cur()){if(data.chats.length)data.cur=data.chats[0].id;else{newChat();return}}
-  renderList();renderChat();renderMeter();$("msgIn").focus();
+  $("site").style.display="none";$("welcome").style.display="none";$("app").style.display="flex";
+  if(!data.chats.length||!cur()){if(data.chats.length)data.cur=data.chats[0].id;else{newChat();return}}
+  renderList();renderChat();renderMeter();$("msgIn").focus();
 }
 function start(){
-  const v=$("nameIn").value.trim();if(!v)return;
-  data.name=v;data.owner=false;save();begin();checkOwner();
+  const v=$("nameIn").value.trim();if(!v)return;
+  data.name=v;data.owner=false;save();begin();checkOwner();
 }
 $("go").onclick=start;
 $("nameIn").addEventListener("keydown",e=>{if(e.key==="Enter")start()});
@@ -314,81 +406,81 @@ $("chg").onclick=()=>{$("app").style.display="none";$("welcome").style.display="
 $("newChat").onclick=()=>{if(!busy)newChat()};
 $("menu").onclick=()=>$("side").classList.toggle("open");
 $("memBtn").onclick=()=>{
-  const u=$("memList");u.innerHTML="";
-  if(!data.memory.length){const li=document.createElement("li");li.textContent="Nothing yet. Chat with me and I'll remember useful things about you.";u.appendChild(li)}
-  data.memory.forEach(m=>{const li=document.createElement("li");li.textContent=m;u.appendChild(li)});
-  $("mem").style.display="flex";
+  const u=$("memList");u.innerHTML="";
+  if(!data.memory.length){const li=document.createElement("li");li.textContent="Nothing yet. Chat with me and I'll remember useful things about you.";u.appendChild(li)}
+  data.memory.forEach(m=>{const li=document.createElement("li");li.textContent=m;u.appendChild(li)});
+  $("mem").style.display="flex";
 };
 $("memClose").onclick=()=>$("mem").style.display="none";
 $("memClear").onclick=()=>{data.memory=[];save();$("memBtn").click()};
 
 /* Flair's brain */
 function persona(c){
-  const others=data.chats.filter(k=>k.id!==c.id&&k.msgs.length).slice(0,6).map(k=>k.title);
-  return `You are Flair, a friendly, witty, capable AI assistant who can help with absolutely anything: writing and debugging code, jokes, stories, homework, advice, brainstorming, and more. The user's name is ${data.name}. Use their name naturally now and then, not in every message. Be warm, concise and genuinely helpful. Today's date is ${new Date().toDateString()}. You have broad knowledge of world news, politics, countries, cultures, history, science, sports, business and everyday life from every part of the world, and you answer any topic in depth. You cannot browse the internet live, so what you know about events stops at your training cutoff. For news, scores, prices or anything recent, share what you know, say plainly that it may be out of date, and suggest checking a live news source for the very latest. Never invent news. The user can attach photos and videos. You can only see the files attached to their latest message; for a video you only receive a few still frames in order and cannot hear its audio, so say so and describe only what you can see. Never identify real people from their faces; describe what is visible instead. The user can start chats from a menu of 200 ability shortcuts (writing, code, learning, math and science, languages, business, life, creative, fun, thinking, health and wellness, money and career, tech and data, games and puzzles, history and society, arts and media, productivity, relationships, teaching and kids, superpowers); treat each as a normal request and do it really well. For quizzes, trivia, riddles, interviews and games, go one step at a time and wait for the user to answer before moving on. For health, money and legal topics, give helpful general information rather than a diagnosis or personal financial or legal advice, and suggest a qualified professional for anything serious. Put code in fenced code blocks. Flair was created only by Rudra, Arjun, Allan and Vivaan. If anyone asks who made you or who your creators are, proudly name those four and nobody else. If someone asks what AI model powers you under the hood, be honest that you run on Claude, made by Anthropic. When the user asks you to make, draw, create or show a picture, photo, image, logo or illustration, make it as an SVG drawing: write one short friendly line, then exactly one fenced code block labelled svg that holds a complete, self-contained <svg> element with a viewBox such as 0 0 800 600, rich colors, gradients and detail, no scripts, no external links or images, and at most a few words of text inside it. If they ask for a real photograph, say upfront that you draw illustrations rather than take photorealistic photos, then draw your best version. Code blocks written in js or html get a Run in sandbox button in the chat, so for runnable demos prefer plain JavaScript that prints with console.log, or one self-contained html block. The sandbox has no network access except that scripts can load from https://cdnjs.cloudflare.com. 3D GAMES: when asked for a 3D game, make one complete self-contained html block that loads three.js with <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script> (that exact r128 build, so no OrbitControls, CapsuleGeometry or other add-ons), uses only simple built-in geometry and colors (no image, model or texture files), fills the whole window (body margin 0, overflow hidden, resize handler), runs on requestAnimationFrame, supports both keyboard (WASD or arrows, space) and on-screen touch buttons for phones, shows score and instructions on screen, and has game over and restart. Keep the code tight and check it carefully for errors before sending. If the user sends you an error from the sandbox, find the bug and give the corrected code.`
-  +(data.memory.length?`\n\nThings you remember about ${data.name} from earlier chats (use naturally when relevant, never recite them as a list):\n- ${data.memory.join("\n- ")}`:"")
-  +(others.length?`\n\nTitles of their recent other chats with you: ${others.join("; ")}.`:"");
+  const others=data.chats.filter(k=>k.id!==c.id&&k.msgs.length).slice(0,6).map(k=>k.title);
+  return `You are Flair, a friendly, witty, capable AI assistant who can help with absolutely anything: writing and debugging code, jokes, stories, homework, advice, brainstorming, and more. The user's name is ${data.name}. Use their name naturally now and then, not in every message. Be warm, concise and genuinely helpful. Today's date is ${new Date().toDateString()}. You have broad knowledge of world news, politics, countries, cultures, history, science, sports, business and everyday life from every part of the world, and you answer any topic in depth. You cannot browse the internet live, so what you know about events stops at your training cutoff. For news, scores, prices or anything recent, share what you know, say plainly that it may be out of date, and suggest checking a live news source for the very latest. Never invent news. The user can attach photos and videos. You can only see the files attached to their latest message; for a video you only receive a few still frames in order and cannot hear its audio, so say so and describe only what you can see. Never identify real people from their faces; describe what is visible instead. The user can start chats from a menu of 200 ability shortcuts (writing, code, learning, math and science, languages, business, life, creative, fun, thinking, health and wellness, money and career, tech and data, games and puzzles, history and society, arts and media, productivity, relationships, teaching and kids, superpowers); treat each as a normal request and do it really well. For quizzes, trivia, riddles, interviews and games, go one step at a time and wait for the user to answer before moving on. For health, money and legal topics, give helpful general information rather than a diagnosis or personal financial or legal advice, and suggest a qualified professional for anything serious. Put code in fenced code blocks. Flair was created only by Rudra, Arjun, Allan and Vivaan. If anyone asks who made you or who your creators are, proudly name those four and nobody else. If someone asks what AI model powers you under the hood, be honest that you run on ${window.FLAIR_ENGINE||"Claude, made by Anthropic"}. When the user asks you to make, draw, create or show a picture, photo, image, logo or illustration, make it as an SVG drawing: write one short friendly line, then exactly one fenced code block labelled svg that holds a complete, self-contained <svg> element with a viewBox such as 0 0 800 600, rich colors, gradients and detail, no scripts, no external links or images, and at most a few words of text inside it. If they ask for a real photograph, say upfront that you draw illustrations rather than take photorealistic photos, then draw your best version. Code blocks written in js or html get a Run in sandbox button in the chat, so for runnable demos prefer plain JavaScript that prints with console.log, or one self-contained html block. The sandbox has no network access except that scripts can load from https://cdnjs.cloudflare.com. 3D GAMES: when asked for a 3D game, make one complete self-contained html block that loads three.js with <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script> (that exact r128 build, so no OrbitControls, CapsuleGeometry or other add-ons), uses only simple built-in geometry and colors (no image, model or texture files), fills the whole window (body margin 0, overflow hidden, resize handler), runs on requestAnimationFrame, supports both keyboard (WASD or arrows, space) and on-screen touch buttons for phones, shows score and instructions on screen, and has game over and restart. Keep the code tight and check it carefully for errors before sending. If the user sends you an error from the sandbox, find the bug and give the corrected code.`
+  +(data.memory.length?`\n\nThings you remember about ${data.name} from earlier chats (use naturally when relevant, never recite them as a list):\n- ${data.memory.join("\n- ")}`:"")
+  +(others.length?`\n\nTitles of their recent other chats with you: ${others.join("; ")}.`:"");
 }
 async function learn(userText,reply){
-  if(userText.length<15)return;
-  try{
-    const r=await sample.json(`You maintain long-term memory for a chat assistant. Existing memories:\n${data.memory.map(m=>"- "+m).join("\n")||"(none)"}\n\nLatest exchange:\nUser: ${userText}\nAssistant: ${reply.slice(0,600)}\n\nExtract short, durable facts about the user worth remembering across chats (interests, projects, preferences, goals, things they are building). Skip anything already known, one-off requests, and sensitive details (health, finances, passwords, ID numbers, addresses). Reply ONLY with JSON: {"new":["fact", ...]} using an empty array if nothing qualifies.`,{modelTier:"quick",cache:false});
-    const add=(r&&r.new||[]).filter(x=>typeof x==="string"&&x.trim()).map(x=>x.trim().slice(0,140));
-    add.forEach(f=>{if(!data.memory.some(m=>m.toLowerCase()===f.toLowerCase()))data.memory.push(f)});
-    data.memory=data.memory.slice(-300);save();
-  }catch(e){}
+  if(userText.length<15)return;
+  try{
+    const r=await sample.json(`You maintain long-term memory for a chat assistant. Existing memories:\n${data.memory.map(m=>"- "+m).join("\n")||"(none)"}\n\nLatest exchange:\nUser: ${userText}\nAssistant: ${reply.slice(0,600)}\n\nExtract short, durable facts about the user worth remembering across chats (interests, projects, preferences, goals, things they are building). Skip anything already known, one-off requests, and sensitive details (health, finances, passwords, ID numbers, addresses). Reply ONLY with JSON: {"new":["fact", ...]} using an empty array if nothing qualifies.`,{modelTier:"quick",cache:false});
+    const add=(r&&r.new||[]).filter(x=>typeof x==="string"&&x.trim()).map(x=>x.trim().slice(0,140));
+    add.forEach(f=>{if(!data.memory.some(m=>m.toLowerCase()===f.toLowerCase()))data.memory.push(f)});
+    data.memory=data.memory.slice(-300);save();
+  }catch(e){}
 }
 async function send(text){
-  text=(text??$("msgIn").value).trim();
-  const c=cur();
-  const att=pending.slice();
-  if((!text&&!att.length)||busy||!c)return;
-  if(!text)text="Take a look at this and tell me what you see.";
-  const lim=usageNow();
-  if(lim.left<=0){showErr("You've used all "+lim.max+" prompts in this chat. Start a new chat to keep going, or your next prompt here frees up at "+fmtT(lim.reset)+"."+(isPro()?"":" Pro gives you more per chat."));return}
-  showErr("");
-  stopSpeak();
-  const ch=$("chips");if(ch)ch.remove();
-  $("msgIn").value="";$("msgIn").style.height="auto";
-  const shown=text+(att.length?"\n📎 "+attLabel(att):"");
-  addUser(shown,att.map(a=>a.thumb).filter(Boolean));pending=[];renderPending();
-  c.msgs.push({role:"user",content:shown,thumbs:att.map(a=>a.thumb).filter(Boolean)});
-  if(c.msgs.length===1){c.title=text.length>34?text.slice(0,34)+"…":text;renderList()}
-  c.ts=Date.now();save();
-  c.usage=c.usage||[];c.usage.push(Date.now());save();renderMeter();
-  busy=true;$("send").disabled=true;
-  const out=add("ai","<p>Thinking...</p>");
-  try{
-    if(!sample)sample=await claude.use("sample");
-    if(!sample)throw {message:"Flair's brain isn't available in this view. Open the page in claude.ai and allow access."};
-    const enc=new TextEncoder(),sz=x=>enc.encode(x).length,pre=persona(c);
-    const hist=c.msgs.map(m=>({role:m.role,content:m.role==="assistant"?m.content.replace(/```svg[\s\S]*?```/gi,"[drawing]"):m.content}));
-    let tot=sz(pre)+hist.reduce((a,m)=>a+sz(m.content),0);
-    while((tot>230000||hist[0].role!=="user")&&hist.length>1){tot-=sz(hist[0].content);hist.shift()}
-    const input=hist.map((m,i)=>i===0?{role:"user",content:pre+"\n\n---\nConversation starts. User says: "+m.content}:m);
-    if(att.length){
-      let k=1;const parts=[];
-      att.forEach(a=>{
-        const n=a.blobs.length;
-        if(a.kind==="video"){parts.push("images "+k+"-"+(k+n-1)+": "+n+" still frames from a video"+(a.name?" ("+a.name+")":"")+", evenly spaced in time order");}
-        else parts.push("image "+k+": a photo"+(a.name?" ("+a.name+")":""));
-        k+=n;
-      });
-      input[input.length-1].content+="\n\n[Attached for you to look at: "+parts.join("; ")+".]";
-    }
-    const res=await sample(input,{cache:false,...(att.length?{images:att.flatMap(a=>a.blobs)}:{}),onText:({text:t})=>{out.innerHTML=md(t)||"<p>Thinking...</p>";$("chat").scrollTop=1e9}});
-    out.innerHTML=md(res.text);
-    c.msgs.push({role:"assistant",content:res.text});save();
-    learn(text,res.text.replace(/```svg[\s\S]*?```/gi,"[drawing]"));
-    attachSpeak(out,res.text);
-    if(data.speak||talk)speak(res.text,()=>{if(talk)listen()});
-  }catch(e){
-    out.remove();
-    {const ubs=$("chat").querySelectorAll(".msg.user");if(ubs.length)ubs[ubs.length-1].remove();$("msgIn").value=text}
-    c.msgs.pop();if(c.usage)c.usage.pop();save();renderMeter();if(talk)stopTalk();if(att.length){pending=att;renderPending()}
-    showErr(errText(e));
-  }
-  busy=false;$("send").disabled=false;$("msgIn").focus();
+  text=(text??$("msgIn").value).trim();
+  const c=cur();
+  const att=pending.slice();
+  if((!text&&!att.length)||busy||!c)return;
+  if(!text)text="Take a look at this and tell me what you see.";
+  const lim=usageNow();
+  if(lim.left<=0){showErr("You've used all "+lim.max+" prompts for now. Your next one frees up at "+fmtT(lim.reset)+"."+(isPro()?"":" Pro gives you more."));return}
+  showErr("");
+  stopSpeak();
+  const ch=$("chips");if(ch)ch.remove();
+  $("msgIn").value="";$("msgIn").style.height="auto";
+  const shown=text+(att.length?"\n📎 "+attLabel(att):"");
+  addUser(shown,att.map(a=>a.thumb).filter(Boolean));pending=[];renderPending();
+  c.msgs.push({role:"user",content:shown,thumbs:att.map(a=>a.thumb).filter(Boolean)});
+  if(c.msgs.length===1){c.title=text.length>34?text.slice(0,34)+"…":text;renderList()}
+  c.ts=Date.now();save();
+  if(!Array.isArray(data.usage))data.usage=[];data.usage.push(Date.now());save();renderMeter();
+  busy=true;$("send").disabled=true;
+  const out=add("ai","<p>Thinking...</p>");
+  try{
+    if(!sample)sample=await claude.use("sample");
+    if(!sample)throw {message:"Flair's brain isn't available in this view. Open the page in claude.ai and allow access."};
+    const enc=new TextEncoder(),sz=x=>enc.encode(x).length,pre=persona(c);
+    const hist=c.msgs.map(m=>({role:m.role,content:m.role==="assistant"?m.content.replace(/```svg[\s\S]*?```/gi,"[drawing]"):m.content}));
+    let tot=sz(pre)+hist.reduce((a,m)=>a+sz(m.content),0);
+    while((tot>230000||hist[0].role!=="user")&&hist.length>1){tot-=sz(hist[0].content);hist.shift()}
+    const input=hist.map((m,i)=>i===0?{role:"user",content:pre+"\n\n---\nConversation starts. User says: "+m.content}:m);
+    if(att.length){
+      let k=1;const parts=[];
+      att.forEach(a=>{
+        const n=a.blobs.length;
+        if(a.kind==="video"){parts.push("images "+k+"-"+(k+n-1)+": "+n+" still frames from a video"+(a.name?" ("+a.name+")":"")+", evenly spaced in time order");}
+        else parts.push("image "+k+": a photo"+(a.name?" ("+a.name+")":""));
+        k+=n;
+      });
+      input[input.length-1].content+="\n\n[Attached for you to look at: "+parts.join("; ")+".]";
+    }
+    const res=await sample(input,{cache:false,...(att.length?{images:att.flatMap(a=>a.blobs)}:{}),onText:({text:t})=>{out.innerHTML=md(t)||"<p>Thinking...</p>";$("chat").scrollTop=1e9}});
+    out.innerHTML=md(res.text);
+    c.msgs.push({role:"assistant",content:res.text});save();
+    learn(text,res.text.replace(/```svg[\s\S]*?```/gi,"[drawing]"));
+    attachSpeak(out,res.text);
+    if(data.speak||talk)speak(res.text,()=>{if(talk)listen()});
+  }catch(e){
+    out.remove();
+    {const ubs=$("chat").querySelectorAll(".msg.user");if(ubs.length)ubs[ubs.length-1].remove();$("msgIn").value=text}
+    c.msgs.pop();data.usage.pop();save();renderMeter();if(talk)stopTalk();if(att.length){pending=att;renderPending()}
+    showErr(errText(e));
+  }
+  busy=false;$("send").disabled=false;$("msgIn").focus();
 }
 /* Voice: text to speech + voice input */
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
@@ -396,94 +488,94 @@ const synth=window.speechSynthesis;
 let talk=false,rec=null,voices=[],spkId=0;
 if(data.speak===undefined)data.speak=true;
 function updateBtns(){
-  $("spkBtn").textContent="🔊 Voice replies: "+(data.speak?"on":"off");
-  $("talkBtn").textContent=talk?"⏹ End voice chat":"🎧 Voice chat";
+  $("spkBtn").textContent="🔊 Voice replies: "+(data.speak?"on":"off");
+  $("talkBtn").textContent=talk?"⏹ End voice chat":"🎧 Voice chat";
 }
 function loadVoices(){
-  if(!synth)return;
-  voices=synth.getVoices();
-  const s=$("voiceSel");s.innerHTML="";
-  voices.forEach(v=>{const o=document.createElement("option");o.value=v.name;o.textContent=v.name+" ("+v.lang+")";s.appendChild(o)});
-  if(!voices.length)return;
-  if(!data.voice||!voices.some(v=>v.name===data.voice)){
-    const lg=(navigator.language||"en").slice(0,2);
-    data.voice=(voices.find(v=>v.lang.toLowerCase().startsWith(lg))||voices[0]).name;
-  }
-  s.value=data.voice;
+  if(!synth)return;
+  voices=synth.getVoices();
+  const s=$("voiceSel");s.innerHTML="";
+  voices.forEach(v=>{const o=document.createElement("option");o.value=v.name;o.textContent=v.name+" ("+v.lang+")";s.appendChild(o)});
+  if(!voices.length)return;
+  if(!data.voice||!voices.some(v=>v.name===data.voice)){
+    const lg=(navigator.language||"en").slice(0,2);
+    data.voice=(voices.find(v=>v.lang.toLowerCase().startsWith(lg))||voices[0]).name;
+  }
+  s.value=data.voice;
 }
 function stopSpeak(){spkId++;try{synth&&synth.cancel()}catch(e){}}
 function cleanForSpeech(t){return t.replace(/```svg[\s\S]*?```/gi," Here is your picture. ").replace(/```[\s\S]*?```/g," (code omitted) ").replace(/`([^`]*)`/g,"$1").replace(/[*_#>]/g,"").replace(/\s+/g," ").trim()}
 function speak(t,done){
-  const id=++spkId;
-  const fin=()=>{if(id===spkId&&done)done()};
-  if(!synth){setTimeout(fin,0);return}
-  synth.cancel();
-  const clean=cleanForSpeech(t);
-  const parts=clean.match(/[^.!?\n]+[.!?]*\s*/g)||[];
-  const chunks=[];let b="";
-  parts.forEach(p=>{if((b+p).length>180){if(b)chunks.push(b);b=p}else b+=p});
-  if(b)chunks.push(b);
-  if(!chunks.length){setTimeout(fin,0);return}
-  const v=voices.find(x=>x.name===data.voice);
-  chunks.forEach((c,i)=>{
-    const u=new SpeechSynthesisUtterance(c);
-    if(v){u.voice=v;u.lang=v.lang}
-    u.rate=1;u.pitch=1.05;
-    if(i===chunks.length-1){u.onend=fin;u.onerror=fin}
-    synth.speak(u);
-  });
+  const id=++spkId;
+  const fin=()=>{if(id===spkId&&done)done()};
+  if(!synth){setTimeout(fin,0);return}
+  synth.cancel();
+  const clean=cleanForSpeech(t);
+  const parts=clean.match(/[^.!?\n]+[.!?]*\s*/g)||[];
+  const chunks=[];let b="";
+  parts.forEach(p=>{if((b+p).length>180){if(b)chunks.push(b);b=p}else b+=p});
+  if(b)chunks.push(b);
+  if(!chunks.length){setTimeout(fin,0);return}
+  const v=voices.find(x=>x.name===data.voice);
+  chunks.forEach((c,i)=>{
+    const u=new SpeechSynthesisUtterance(c);
+    if(v){u.voice=v;u.lang=v.lang}
+    u.rate=1;u.pitch=1.05;
+    if(i===chunks.length-1){u.onend=fin;u.onerror=fin}
+    synth.speak(u);
+  });
 }
 function attachSpeak(el,text){
-  if(!synth)return;
-  const b=document.createElement("button");b.className="spk";b.textContent="🔊";b.title="Read aloud";
-  b.onclick=()=>{if(synth.speaking){stopSpeak();return}speak(text)};
-  el.appendChild(b);
+  if(!synth)return;
+  const b=document.createElement("button");b.className="spk";b.textContent="🔊";b.title="Read aloud";
+  b.onclick=()=>{if(synth.speaking){stopSpeak();return}speak(text)};
+  el.appendChild(b);
 }
 function stopTalk(){
-  talk=false;
-  const r=rec;rec=null;try{r&&r.abort()}catch(e){}
-  $("mic").classList.remove("live");
-  stopSpeak();updateBtns();
+  talk=false;
+  const r=rec;rec=null;try{r&&r.abort()}catch(e){}
+  $("mic").classList.remove("live");
+  stopSpeak();updateBtns();
 }
 function listen(){
-  if(!SR){showErr("Voice input isn't supported in this browser. Try Chrome, Edge or Safari.");talk=false;updateBtns();return}
-  if(busy)return;
-  stopSpeak();
-  const old=rec;rec=null;try{old&&old.abort()}catch(e){}
-  const r=new SR();rec=r;
-  r.lang=navigator.language||"en-US";r.interimResults=true;r.continuous=false;
-  let final="";
-  $("mic").classList.add("live");showErr("");
-  r.onresult=e=>{
-    let t="",f=false;
-    for(const x of e.results){t+=x[0].transcript;f=x.isFinal}
-    if(f)final=t;
-    $("msgIn").value=t;
-  };
-  r.onerror=e=>{
-    if(e.error==="not-allowed"||e.error==="service-not-allowed"){
-      talk=false;updateBtns();
-      showErr("Microphone access is blocked. Allow the mic for this page in your browser settings, or open the page in its own tab.");
-    }else if(e.error!=="no-speech"&&e.error!=="aborted"&&talk){
-      talk=false;updateBtns();showErr("Voice input hit a problem ("+e.error+").");
-    }
-  };
-  r.onend=()=>{
-    $("mic").classList.remove("live");
-    if(rec!==r)return;
-    const t=(final||$("msgIn").value).trim();
-    if(t&&!busy)send(t);
-    else if(talk&&!busy)setTimeout(()=>{if(talk&&!busy&&rec===r)listen()},400);
-  };
-  try{r.start()}catch(e){}
+  if(!SR){showErr("Voice input isn't supported in this browser. Try Chrome, Edge or Safari.");talk=false;updateBtns();return}
+  if(busy)return;
+  stopSpeak();
+  const old=rec;rec=null;try{old&&old.abort()}catch(e){}
+  const r=new SR();rec=r;
+  r.lang=navigator.language||"en-US";r.interimResults=true;r.continuous=false;
+  let final="";
+  $("mic").classList.add("live");showErr("");
+  r.onresult=e=>{
+    let t="",f=false;
+    for(const x of e.results){t+=x[0].transcript;f=x.isFinal}
+    if(f)final=t;
+    $("msgIn").value=t;
+  };
+  r.onerror=e=>{
+    if(e.error==="not-allowed"||e.error==="service-not-allowed"){
+      talk=false;updateBtns();
+      showErr("Microphone access is blocked. Allow the mic for this page in your browser settings, or open the page in its own tab.");
+    }else if(e.error!=="no-speech"&&e.error!=="aborted"&&talk){
+      talk=false;updateBtns();showErr("Voice input hit a problem ("+e.error+").");
+    }
+  };
+  r.onend=()=>{
+    $("mic").classList.remove("live");
+    if(rec!==r)return;
+    const t=(final||$("msgIn").value).trim();
+    if(t&&!busy)send(t);
+    else if(talk&&!busy)setTimeout(()=>{if(talk&&!busy&&rec===r)listen()},400);
+  };
+  try{r.start()}catch(e){}
 }
 $("mic").onclick=()=>{
-  if($("mic").classList.contains("live")){try{rec&&rec.stop()}catch(e){}}
-  else listen();
+  if($("mic").classList.contains("live")){try{rec&&rec.stop()}catch(e){}}
+  else listen();
 };
 $("talkBtn").onclick=()=>{
-  if(talk){stopTalk();return}
-  talk=true;updateBtns();$("side").classList.remove("open");listen();
+  if(talk){stopTalk();return}
+  talk=true;updateBtns();$("side").classList.remove("open");listen();
 };
 $("spkBtn").onclick=()=>{data.speak=!data.speak;save();updateBtns();if(!data.speak&&!talk)stopSpeak()};
 $("voiceSel").onchange=e=>{data.voice=e.target.value;save();speak("Hi "+data.name+", this is my voice.")};
@@ -493,47 +585,47 @@ if(!SR){$("mic").style.display="none";$("talkBtn").style.display="none"}
 updateBtns();
 
 function runCode(id){
-  const {lg,code}=codes[id],box=$("sbx-"+id);
-  if(!box)return;
-  if(box._fr){try{box._fr.remove()}catch(e){}}
-  box.innerHTML="";
-  const log=document.createElement("pre");log.className="console";box.appendChild(log);
-  const fr=document.createElement("iframe");
-  fr.setAttribute("sandbox","allow-scripts allow-pointer-lock");fr.setAttribute("allow","fullscreen");
-  fr.className=lg==="html"?"view":"hid";
-  box._fr=fr;
-  const tag=Math.random().toString(36).slice(2);
-  const errs=[];let fixBtn=null,n=0;
-  const bar=document.createElement("div");bar.style.cssText="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap";
-  function line(k,m){
-    const d=document.createElement("div");
-    if(k==="error")d.className="e";else if(k==="warn")d.className="w";
-    d.textContent=(k==="i"?"":k==="error"?"✖ ":k==="warn"?"⚠ ":"› ")+m;
-    log.appendChild(d);log.scrollTop=1e9;
-  }
-  const stop=document.createElement("button");stop.className="small";stop.textContent="■ Stop";
-  stop.onclick=()=>{try{fr.remove()}catch(e){}delete runs[tag];line("i","Stopped.")};
-  bar.appendChild(stop);
-  if(lg==="html"){const fs=document.createElement("button");fs.className="small";fs.textContent="⛶ Fullscreen";fs.onclick=()=>{try{(fr.requestFullscreen||fr.webkitRequestFullscreen).call(fr);fr.focus()}catch(e){}};bar.appendChild(fs)}
-  runs[tag]={fr,fn:(k,m)=>{
-    if(++n>300)return;
-    line(k,m);
-    if(k==="error"){
-      errs.push(m);
-      if(!fixBtn){
-        fixBtn=document.createElement("button");fixBtn.className="small";fixBtn.textContent="🛠 Ask Flair to fix this";
-        fixBtn.onclick=()=>send("I ran your code in the sandbox and got this error:\n"+errs.join("\n")+"\n\nPlease fix the code.");
-        bar.appendChild(fixBtn);
-      }
-    }
-  }};
-  const hook="<script>(function(){var t="+JSON.stringify(tag)+";function s(k,a){var m=Array.prototype.map.call(a,function(x){try{return typeof x==='string'?x:JSON.stringify(x)}catch(e){return String(x)}}).join(' ');parent.postMessage({t:t,k:k,m:m},'*')}['log','info','warn','error'].forEach(function(k){var o=console[k];console[k]=function(){s(k,arguments);try{o.apply(console,arguments)}catch(e){}}});window.addEventListener('error',function(e){s('error',[e.message+(e.lineno?' (line '+e.lineno+')':'')])});window.addEventListener('unhandledrejection',function(e){s('error',['Unhandled promise rejection: '+(e.reason&&e.reason.message||e.reason)])})})()<\/script>";
-  fr.srcdoc=lg==="html"
-    ?(/<head[^>]*>/i.test(code)?code.replace(/<head[^>]*>/i,m=>m+hook):hook+code)
-    :"<!doctype html><html><body>"+hook+"<script>"+code+"<\/script></body></html>";
-  box.appendChild(fr);box.appendChild(bar);
-  fr.addEventListener("load",()=>{try{fr.focus();fr.contentWindow.focus()}catch(e){}});
-  setTimeout(()=>{if(lg==="js"&&!log.children.length&&runs[tag])line("i","✓ Ran with no output. Use console.log() to see results.")},1500);
+  const {lg,code}=codes[id],box=$("sbx-"+id);
+  if(!box)return;
+  if(box._fr){try{box._fr.remove()}catch(e){}}
+  box.innerHTML="";
+  const log=document.createElement("pre");log.className="console";box.appendChild(log);
+  const fr=document.createElement("iframe");
+  fr.setAttribute("sandbox","allow-scripts allow-pointer-lock");fr.setAttribute("allow","fullscreen");
+  fr.className=lg==="html"?"view":"hid";
+  box._fr=fr;
+  const tag=Math.random().toString(36).slice(2);
+  const errs=[];let fixBtn=null,n=0;
+  const bar=document.createElement("div");bar.style.cssText="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap";
+  function line(k,m){
+    const d=document.createElement("div");
+    if(k==="error")d.className="e";else if(k==="warn")d.className="w";
+    d.textContent=(k==="i"?"":k==="error"?"✖ ":k==="warn"?"⚠ ":"› ")+m;
+    log.appendChild(d);log.scrollTop=1e9;
+  }
+  const stop=document.createElement("button");stop.className="small";stop.textContent="■ Stop";
+  stop.onclick=()=>{try{fr.remove()}catch(e){}delete runs[tag];line("i","Stopped.")};
+  bar.appendChild(stop);
+  if(lg==="html"){const fs=document.createElement("button");fs.className="small";fs.textContent="⛶ Fullscreen";fs.onclick=()=>{try{(fr.requestFullscreen||fr.webkitRequestFullscreen).call(fr);fr.focus()}catch(e){}};bar.appendChild(fs)}
+  runs[tag]={fr,fn:(k,m)=>{
+    if(++n>300)return;
+    line(k,m);
+    if(k==="error"){
+      errs.push(m);
+      if(!fixBtn){
+        fixBtn=document.createElement("button");fixBtn.className="small";fixBtn.textContent="🛠 Ask Flair to fix this";
+        fixBtn.onclick=()=>send("I ran your code in the sandbox and got this error:\n"+errs.join("\n")+"\n\nPlease fix the code.");
+        bar.appendChild(fixBtn);
+      }
+    }
+  }};
+  const hook="<script>(function(){var t="+JSON.stringify(tag)+";function s(k,a){var m=Array.prototype.map.call(a,function(x){try{return typeof x==='string'?x:JSON.stringify(x)}catch(e){return String(x)}}).join(' ');parent.postMessage({t:t,k:k,m:m},'*')}['log','info','warn','error'].forEach(function(k){var o=console[k];console[k]=function(){s(k,arguments);try{o.apply(console,arguments)}catch(e){}}});window.addEventListener('error',function(e){s('error',[e.message+(e.lineno?' (line '+e.lineno+')':'')])});window.addEventListener('unhandledrejection',function(e){s('error',['Unhandled promise rejection: '+(e.reason&&e.reason.message||e.reason)])})})()<\/script>";
+  fr.srcdoc=lg==="html"
+    ?(/<head[^>]*>/i.test(code)?code.replace(/<head[^>]*>/i,m=>m+hook):hook+code)
+    :"<!doctype html><html><body>"+hook+"<script>"+code+"<\/script></body></html>";
+  box.appendChild(fr);box.appendChild(bar);
+  fr.addEventListener("load",()=>{try{fr.focus();fr.contentWindow.focus()}catch(e){}});
+  setTimeout(()=>{if(lg==="js"&&!log.children.length&&runs[tag])line("i","✓ Ran with no output. Use console.log() to see results.")},1500);
 }
 window.addEventListener("message",e=>{const d=e.data,r=d&&runs[d.t];if(r&&e.source===r.fr.contentWindow)r.fn(d.k,String(d.m).slice(0,2000))});
 $("chat").addEventListener("click",e=>{const r=e.target.dataset&&e.target.dataset.run;if(r&&codes[r])runCode(r)});
@@ -762,93 +854,91 @@ const AB={
 };
 let abCat="All";
 function renderAb(){
-  const q=$("abQ").value.trim().toLowerCase(),g=$("abGrid");
-  g.innerHTML="";
-  Object.entries(AB).forEach(([c,items])=>{
-    if(abCat!=="All"&&abCat!==c)return;
-    items.forEach(it=>{
-      const i=it.indexOf("|"),name=it.slice(0,i),prompt=it.slice(i+1);
-      if(q&&!(name+" "+prompt+" "+c).toLowerCase().includes(q))return;
-      const b=document.createElement("button");b.className="ab";
-      const n=document.createElement("b");n.textContent=ICON[c]+" "+name;
-      const d=document.createElement("span");d.textContent=c;
-      b.append(n,d);
-      b.onclick=()=>{
-        $("abil").style.display="none";
-        if(busy)return;
-        if(prompt.endsWith(":")){const m=$("msgIn");m.value=prompt+" ";m.focus();m.setSelectionRange(m.value.length,m.value.length);m.dispatchEvent(new Event("input"))}
-        else send(prompt);
-      };
-      g.appendChild(b);
-    });
-  });
-  if(!g.children.length){const e=document.createElement("div");e.style.color="var(--muted)";e.textContent="No abilities match that search.";g.appendChild(e)}
+  const q=$("abQ").value.trim().toLowerCase(),g=$("abGrid");
+  g.innerHTML="";
+  Object.entries(AB).forEach(([c,items])=>{
+    if(abCat!=="All"&&abCat!==c)return;
+    items.forEach(it=>{
+      const i=it.indexOf("|"),name=it.slice(0,i),prompt=it.slice(i+1);
+      if(q&&!(name+" "+prompt+" "+c).toLowerCase().includes(q))return;
+      const b=document.createElement("button");b.className="ab";
+      const n=document.createElement("b");n.textContent=ICON[c]+" "+name;
+      const d=document.createElement("span");d.textContent=c;
+      b.append(n,d);
+      b.onclick=()=>{
+        $("abil").style.display="none";
+        if(busy)return;
+        if(prompt.endsWith(":")){const m=$("msgIn");m.value=prompt+" ";m.focus();m.setSelectionRange(m.value.length,m.value.length);m.dispatchEvent(new Event("input"))}
+        else send(prompt);
+      };
+      g.appendChild(b);
+    });
+  });
+  if(!g.children.length){const e=document.createElement("div");e.style.color="var(--muted)";e.textContent="No abilities match that search.";g.appendChild(e)}
 }
 function openAb(){
-  const total=Object.values(AB).reduce((a,x)=>a+x.length,0);
-  $("abTitle").textContent="🧰 "+total+" abilities";
-  const t=$("abTabs");
-  if(!t.children.length){
-    ["All",...Object.keys(AB)].forEach(c=>{
-      const b=document.createElement("button");b.className="chip"+(c==="All"?" on":"");b.textContent=c==="All"?"All":ICON[c]+" "+c;
-      b.onclick=()=>{abCat=c;[...t.children].forEach(x=>x.classList.toggle("on",x===b));renderAb()};
-      t.appendChild(b);
-    });
-  }
-  $("abQ").value="";renderAb();
-  $("side").classList.remove("open");
-  $("abil").style.display="flex";$("abQ").focus();
+  const total=Object.values(AB).reduce((a,x)=>a+x.length,0);
+  $("abTitle").textContent="🧰 "+total+" abilities";
+  const t=$("abTabs");
+  if(!t.children.length){
+    ["All",...Object.keys(AB)].forEach(c=>{
+      const b=document.createElement("button");b.className="chip"+(c==="All"?" on":"");b.textContent=c==="All"?"All":ICON[c]+" "+c;
+      b.onclick=()=>{abCat=c;[...t.children].forEach(x=>x.classList.toggle("on",x===b));renderAb()};
+      t.appendChild(b);
+    });
+  }
+  $("abQ").value="";renderAb();
+  $("side").classList.remove("open");
+  $("abil").style.display="flex";$("abQ").focus();
 }
 $("abBtn").onclick=openAb;$("abBtn2").onclick=openAb;
 $("abClose").onclick=()=>$("abil").style.display="none";
 $("abil").onclick=e=>{if(e.target.id==="abil")$("abil").style.display="none"};
 $("abQ").addEventListener("input",renderAb);
-const WIN=3600*1000,FREE_MAX=30,PRO_MAX=60,PAY_LINK="";
+const WIN=5*3600*1000,FREE_MAX=25,PRO_MAX=75,PAY_LINK="";
 const PRO_HASHES=["26965e9ea7e11f5fb7b690f3b9d51ff88443f26f860d59c8734cdfb78672ca6d","65fc0b010ee0ab98cd17bc7f7e120a2bbf81937df47bf7224889f1747b068c3b","c6485fae4e298d57ad2f6c5b3ecdfcd9c1ce62dd379b5971d8d7f8038aad5d5a","a64667b3a5d185aab9394cdb5334d566559e06f902bf42d053284968acdf7086","5539afc174496c3046d408bf9db5795653ea7ea619e97c41ff3aa8aabae17cf0","fa6e072175aff1d61f64922c09e71c4df5eb7188ac14c955ed93f14060d5da16","c37985193949f7d89d0aacff132b9e2b38d9d6b4d3e57fd0fbcc6731b014dae2","a5b334a3ce6f1c6c7cf3eef6dedd591e0aef0c1724df95823a731eddf2978b0a","60b43b4146053b0aeb32a0ed325335413436e09b266d28bed903661608c94459","12b29d991d4dad7ec97d0affcf13bd9d1710c6c511815526b07b3d730a98031a"];
 function isPro(){return !!(data.pro&&data.pro.until>Date.now())}
 function usageNow(){
-  const max=isPro()?PRO_MAX:FREE_MAX;
-  if(data.owner)return {max:Infinity,left:Infinity,reset:null};
-  const c=cur();
-  if(!c)return {max,left:max,reset:null};
-  if(!Array.isArray(c.usage))c.usage=[];
-  const now=Date.now();
-  c.usage=c.usage.filter(t=>now-t<WIN);
-  return {max,left:Math.max(0,max-c.usage.length),reset:c.usage.length?new Date(c.usage[0]+WIN):null};
+  const max=isPro()?PRO_MAX:FREE_MAX;
+  if(data.owner)return {max:Infinity,left:Infinity,reset:null};
+  if(!Array.isArray(data.usage))data.usage=[];
+  const now=Date.now();
+  data.usage=data.usage.filter(t=>now-t<WIN);
+  return {max,left:Math.max(0,max-data.usage.length),reset:data.usage.length?new Date(data.usage[0]+WIN):null};
 }
 function fmtT(d){return d?d.toLocaleTimeString([],{hour:"numeric",minute:"2-digit"}):""}
 function renderMeter(){
-  const u=usageNow(),m=$("meter");
-  m.innerHTML="";
-  const t=document.createElement("div");
-  t.textContent=data.owner?"♾ Unlimited prompts":(isPro()?"⭐ Pro · ":"Free · ")+u.left+" of "+u.max+" prompts left in this chat"+(u.reset&&u.left<u.max?" · next frees at "+fmtT(u.reset):"");
-  const bar=document.createElement("div");bar.className="mbar";
-  const f=document.createElement("i");f.style.width=data.owner?"100%":Math.round(u.left/u.max*100)+"%";bar.appendChild(f);
-  m.append(t,bar);
-  if(!isPro()&&!data.owner){const b=document.createElement("button");b.className="small";b.textContent="⭐ Upgrade to Pro";b.onclick=openUp;m.appendChild(b)}
+  const u=usageNow(),m=$("meter");
+  m.innerHTML="";
+  const t=document.createElement("div");
+  t.textContent=data.owner?"♾ Unlimited prompts":(isPro()?"⭐ Pro · ":"Free · ")+u.left+" of "+u.max+" prompts left"+(u.reset&&u.left<u.max?" · next frees at "+fmtT(u.reset):"");
+  const bar=document.createElement("div");bar.className="mbar";
+  const f=document.createElement("i");f.style.width=data.owner?"100%":Math.round(u.left/u.max*100)+"%";bar.appendChild(f);
+  m.append(t,bar);
+  if(!isPro()&&!data.owner){const b=document.createElement("button");b.className="small";b.textContent="⭐ Upgrade to Pro";b.onclick=openUp;m.appendChild(b)}
 }
 function openUp(){
-  const pay=$("upPay");pay.innerHTML="";
-  if(PAY_LINK){const a=document.createElement("a");a.className="btn";a.href=PAY_LINK;a.target="_blank";a.rel="noopener";a.textContent="Pay ₹500";pay.appendChild(a)}
-  $("upMsg").textContent="";$("upCode").value="";
-  $("side").classList.remove("open");
-  $("up").style.display="flex";
+  const pay=$("upPay");pay.innerHTML="";
+  if(PAY_LINK){const a=document.createElement("a");a.className="btn";a.href=PAY_LINK;a.target="_blank";a.rel="noopener";a.textContent="Pay ₹500";pay.appendChild(a)}
+  $("upMsg").textContent="";$("upCode").value="";
+  $("side").classList.remove("open");
+  $("up").style.display="flex";
 }
 async function sha(x){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(x));return [...new Uint8Array(b)].map(v=>v.toString(16).padStart(2,"0")).join("")}
 async function redeem(){
-  const code=$("upCode").value.toUpperCase().replace(/\s+/g,""),msg=$("upMsg");
-  if(!code){msg.textContent="Enter your unlock code.";return}
-  let h;try{h=await sha(code)}catch(e){msg.textContent="Codes can't be checked in this browser.";return}
-  if(!PRO_HASHES.includes(h)){msg.textContent="That code isn't valid.";return}
-  if((data.used||[]).includes(h)){msg.textContent="This code was already used on this device.";return}
-  data.used=[...(data.used||[]),h];data.pro={until:Date.now()+30*864e5};save();
-  msg.textContent="Pro unlocked for 30 days. Enjoy!";renderMeter();
-  setTimeout(()=>{$("up").style.display="none"},1200);
+  const code=$("upCode").value.toUpperCase().replace(/\s+/g,""),msg=$("upMsg");
+  if(!code){msg.textContent="Enter your unlock code.";return}
+  let h;try{h=await sha(code)}catch(e){msg.textContent="Codes can't be checked in this browser.";return}
+  if(!PRO_HASHES.includes(h)){msg.textContent="That code isn't valid.";return}
+  if((data.used||[]).includes(h)){msg.textContent="This code was already used on this device.";return}
+  data.used=[...(data.used||[]),h];data.pro={until:Date.now()+30*864e5};save();
+  msg.textContent="Pro unlocked for 30 days. Enjoy!";renderMeter();
+  setTimeout(()=>{$("up").style.display="none"},1200);
 }
 const OWNER_HASH="2f1853541be48dd3fbc2afa1783f10b6fc560d736c4db4ca8a4329f946ae0d25";
 function checkOwner(){
-  if(!data.name){data.owner=false;return}
-  sha(data.name.trim().toLowerCase()).then(h=>{const o=h===OWNER_HASH;if(o!==!!data.owner){data.owner=o;save()}renderMeter()}).catch(()=>{});
+  if(!data.name){data.owner=false;return}
+  sha(data.name.trim().toLowerCase()).then(h=>{const o=h===OWNER_HASH;if(o!==!!data.owner){data.owner=o;save()}renderMeter()}).catch(()=>{});
 }
 $("upGo").onclick=redeem;
 $("upCode").addEventListener("keydown",e=>{if(e.key==="Enter")redeem()});
@@ -857,103 +947,103 @@ $("up").onclick=e=>{if(e.target.id==="up")$("up").style.display="none"};
 setInterval(()=>{if($("app").style.display==="flex")renderMeter()},60000);
 let pending=[];
 function attLabel(att){
-  const p=att.filter(a=>a.kind==="photo").length,v=att.filter(a=>a.kind==="video").length,o=[];
-  if(p)o.push(p+(p>1?" photos":" photo"));
-  if(v)o.push(v+(v>1?" videos":" video"));
-  return o.join(", ");
+  const p=att.filter(a=>a.kind==="photo").length,v=att.filter(a=>a.kind==="video").length,o=[];
+  if(p)o.push(p+(p>1?" photos":" photo"));
+  if(v)o.push(v+(v>1?" videos":" video"));
+  return o.join(", ");
 }
 function renderPending(){
-  const b=$("pend");b.innerHTML="";
-  b.style.display=pending.length?"flex":"none";
-  pending.forEach((a,i)=>{
-    const w=document.createElement("div");w.className="pi";
-    const im=document.createElement("img");if(a.thumb)im.src=a.thumb;im.alt=a.name||"";
-    const x=document.createElement("b");x.textContent="×";x.onclick=()=>{pending.splice(i,1);renderPending()};
-    const sp=document.createElement("span");sp.textContent=(a.kind==="video"?"🎞 ":"")+(a.name||"");
-    w.append(im,x,sp);b.appendChild(w);
-  });
+  const b=$("pend");b.innerHTML="";
+  b.style.display=pending.length?"flex":"none";
+  pending.forEach((a,i)=>{
+    const w=document.createElement("div");w.className="pi";
+    const im=document.createElement("img");if(a.thumb)im.src=a.thumb;im.alt=a.name||"";
+    const x=document.createElement("b");x.textContent="×";x.onclick=()=>{pending.splice(i,1);renderPending()};
+    const sp=document.createElement("span");sp.textContent=(a.kind==="video"?"🎞 ":"")+(a.name||"");
+    w.append(im,x,sp);b.appendChild(w);
+  });
 }
 async function thumbOf(blob){
-  try{
-    const bm=await createImageBitmap(blob),w=120,h=Math.max(1,Math.round(w*bm.height/bm.width));
-    const cv=document.createElement("canvas");cv.width=w;cv.height=h;cv.getContext("2d").drawImage(bm,0,0,w,h);
-    return cv.toDataURL("image/jpeg",.6);
-  }catch(e){return ""}
+  try{
+    const bm=await createImageBitmap(blob),w=120,h=Math.max(1,Math.round(w*bm.height/bm.width));
+    const cv=document.createElement("canvas");cv.width=w;cv.height=h;cv.getContext("2d").drawImage(bm,0,0,w,h);
+    return cv.toDataURL("image/jpeg",.6);
+  }catch(e){return ""}
 }
 function videoFrames(file,n){
-  return new Promise((resolve,reject)=>{
-    const url=URL.createObjectURL(file),v=document.createElement("video");
-    const blobs=[];let thumb="";
-    const fail=m=>{URL.revokeObjectURL(url);reject({message:m})};
-    v.muted=true;v.playsInline=true;v.preload="auto";
-    v.onerror=()=>fail("Couldn't read that video in this browser. Try an MP4.");
-    v.onloadedmetadata=async()=>{
-      try{
-        const d=v.duration,cnt=isFinite(d)&&d>0?n:1;
-        const vw=v.videoWidth||768,vh=v.videoHeight||432,w=Math.min(768,vw),h=Math.round(w*vh/vw);
-        const cv=document.createElement("canvas");cv.width=w;cv.height=h;const g=cv.getContext("2d");
-        for(let i=0;i<cnt;i++){
-          const t=cnt===1?.1:d*(i+.5)/cnt;
-          await Promise.race([new Promise(r=>{v.onseeked=r;v.currentTime=t}),new Promise(r=>setTimeout(r,4000))]);
-          g.drawImage(v,0,0,w,h);
-          const b=await new Promise(r=>cv.toBlob(r,"image/jpeg",.8));
-          if(b)blobs.push(b);
-          if(i===0){const tc=document.createElement("canvas");tc.width=120;tc.height=Math.max(1,Math.round(120*h/w));tc.getContext("2d").drawImage(cv,0,0,tc.width,tc.height);thumb=tc.toDataURL("image/jpeg",.6)}
-        }
-        URL.revokeObjectURL(url);
-        blobs.length?resolve({blobs,thumb}):fail("Couldn't grab frames from that video.");
-      }catch(e){fail("Couldn't read that video.")}
-    };
-    v.src=url;
-  });
+  return new Promise((resolve,reject)=>{
+    const url=URL.createObjectURL(file),v=document.createElement("video");
+    const blobs=[];let thumb="";
+    const fail=m=>{URL.revokeObjectURL(url);reject({message:m})};
+    v.muted=true;v.playsInline=true;v.preload="auto";
+    v.onerror=()=>fail("Couldn't read that video in this browser. Try an MP4.");
+    v.onloadedmetadata=async()=>{
+      try{
+        const d=v.duration,cnt=isFinite(d)&&d>0?n:1;
+        const vw=v.videoWidth||768,vh=v.videoHeight||432,w=Math.min(768,vw),h=Math.round(w*vh/vw);
+        const cv=document.createElement("canvas");cv.width=w;cv.height=h;const g=cv.getContext("2d");
+        for(let i=0;i<cnt;i++){
+          const t=cnt===1?.1:d*(i+.5)/cnt;
+          await Promise.race([new Promise(r=>{v.onseeked=r;v.currentTime=t}),new Promise(r=>setTimeout(r,4000))]);
+          g.drawImage(v,0,0,w,h);
+          const b=await new Promise(r=>cv.toBlob(r,"image/jpeg",.8));
+          if(b)blobs.push(b);
+          if(i===0){const tc=document.createElement("canvas");tc.width=120;tc.height=Math.max(1,Math.round(120*h/w));tc.getContext("2d").drawImage(cv,0,0,tc.width,tc.height);thumb=tc.toDataURL("image/jpeg",.6)}
+        }
+        URL.revokeObjectURL(url);
+        blobs.length?resolve({blobs,thumb}):fail("Couldn't grab frames from that video.");
+      }catch(e){fail("Couldn't read that video.")}
+    };
+    v.src=url;
+  });
 }
 async function addFiles(files){
-  showErr("");
-  try{
-    if(!sample)sample=await claude.use("sample");
-    const L=sample&&await sample.limits();
-    const lim=L&&L.images;
-    if(!lim){showErr("Photo and video upload isn't available in this view.");return}
-    for(const f of files){
-      const used=pending.reduce((a,x)=>a+x.blobs.length,0),room=lim.maxCount-used;
-      if(room<1){showErr("You can attach up to "+lim.maxCount+" images per message.");break}
-      if(f.type.startsWith("video/")){
-        showErr("Reading video...");
-        const fr=await videoFrames(f,Math.min(6,room));
-        pending.push({kind:"video",name:f.name,blobs:fr.blobs,thumb:fr.thumb});showErr("");
-      }else if(lim.mediaTypes.includes(f.type)){
-        if(f.size>lim.maxInputBytes){showErr(f.name+" is too large.");continue}
-        pending.push({kind:"photo",name:f.name,blobs:[f],thumb:await thumbOf(f)});
-      }else showErr(f.name+" isn't a supported type. Use JPG, PNG, WebP, GIF or a video.");
-      renderPending();
-    }
-  }catch(e){showErr((e&&e.message)||"Couldn't read that file.")}
+  showErr("");
+  try{
+    if(!sample)sample=await claude.use("sample");
+    const L=sample&&await sample.limits();
+    const lim=L&&L.images;
+    if(!lim){showErr("Photo and video upload isn't available in this view.");return}
+    for(const f of files){
+      const used=pending.reduce((a,x)=>a+x.blobs.length,0),room=lim.maxCount-used;
+      if(room<1){showErr("You can attach up to "+lim.maxCount+" images per message.");break}
+      if(f.type.startsWith("video/")){
+        showErr("Reading video...");
+        const fr=await videoFrames(f,Math.min(6,room));
+        pending.push({kind:"video",name:f.name,blobs:fr.blobs,thumb:fr.thumb});showErr("");
+      }else if(lim.mediaTypes.includes(f.type)){
+        if(f.size>lim.maxInputBytes){showErr(f.name+" is too large.");continue}
+        pending.push({kind:"photo",name:f.name,blobs:[f],thumb:await thumbOf(f)});
+      }else showErr(f.name+" isn't a supported type. Use JPG, PNG, WebP, GIF or a video.");
+      renderPending();
+    }
+  }catch(e){showErr((e&&e.message)||"Couldn't read that file.")}
 }
 $("attBtn").onclick=()=>$("fileIn").click();
 $("fileIn").onchange=e=>{const fl=[...e.target.files];e.target.value="";if(fl.length)addFiles(fl)};
 function errText(e){
-  const m=(e&&e.message)||"";
-  if(e instanceof ReferenceError||/claude is not defined/i.test(m))return "Flair's AI isn't available here. Open Flair from its claude.ai link while signed in to Claude.";
-  if(e&&e.code==="rate_limited")return "You've reached your Claude usage limit for now. It resets on its own, so try again a bit later.";
-  if(e&&e.code==="not_granted")return "Flair needs your permission to use Claude. Reload the page and tap Allow when asked, then send your message again.";
-  return m||"Something went wrong. Your message is back in the box, so try sending it again.";
+  const m=(e&&e.message)||"";
+  if(e instanceof ReferenceError||/claude is not defined/i.test(m))return "Flair's AI isn't available here. Open Flair from its claude.ai link while signed in to Claude.";
+  if(e&&e.code==="rate_limited")return "The AI's usage limit has been reached for now. It resets on its own, so try again a bit later.";
+  if(e&&e.code==="not_granted")return "Flair needs your permission to use Claude. Reload the page and tap Allow when asked, then send your message again.";
+  return m||"Something went wrong. Your message is back in the box, so try sending it again.";
 }
 function enter(){
-  $("site").style.display="none";
-  if(data.name)begin();
-  else{$("welcome").style.display="";$("nameIn").focus()}
+  $("site").style.display="none";
+  if(data.name)begin();
+  else{$("welcome").style.display="";$("nameIn").focus()}
 }
 function goHome(){
-  stopSpeak();if(talk)stopTalk();
-  $("side").classList.remove("open");
-  $("app").style.display="none";$("welcome").style.display="none";
-  $("site").style.display="block";$("site").scrollTop=0;
+  stopSpeak();if(talk)stopTalk();
+  $("side").classList.remove("open");
+  $("app").style.display="none";$("welcome").style.display="none";
+  $("site").style.display="block";$("site").scrollTop=0;
 }
 $("siteOpen").onclick=enter;$("siteStart").onclick=enter;$("homeBtn").onclick=goHome;
 $("chat").addEventListener("click",async e=>{
-  const id=e.target.dataset&&e.target.dataset.pic;if(!id||!pics[id])return;
-  try{const d=await claude.use("downloads");if(!d)throw 0;await d.save({filename:"flair-picture.svg",data:pics[id]})}
-  catch(err){if(!err||err.code!=="declined")showErr("Couldn't save the picture here. Try right-clicking or long-pressing it to save.")}
+  const id=e.target.dataset&&e.target.dataset.pic;if(!id||!pics[id])return;
+  try{const d=await claude.use("downloads");if(!d)throw 0;await d.save({filename:"flair-picture.svg",data:pics[id]})}
+  catch(err){if(!err||err.code!=="declined")showErr("Couldn't save the picture here. Try right-clicking or long-pressing it to save.")}
 });
 
 $("send").onclick=()=>send();
